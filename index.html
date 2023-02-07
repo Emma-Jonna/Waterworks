@@ -1,20 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="CSS/fonts.css">
-        <link rel="stylesheet" href="CSS/global.css">
-        <link rel="stylesheet" href="CSS/main.css">
-        <link rel="stylesheet" href="CSS/typography.css">
-        <title>Hydro</title>
-    </head>
+  <body>
+    <h1>Hello</h1>
+    <div id="map"></div>
+    <!-- <iframe
+      width="100%"
+      height="400px"
+      src="https://api.mapbox.com/styles/v1/captaincatlady/cldu7snr0003d01mhimnx6b4x.html?title=false&access_token=pk.eyJ1IjoiY2FwdGFpbmNhdGxhZHkiLCJhIjoiY2xkdTdwNmN5MDM1czNwbjgxOGVhMHk1NSJ9.IAnTlnle1gyizyIh-K2Kcg&zoomwheel=false#9.44/57.7121/11.9829"
+      title="Streets"
+      style="border: none"
+    ></iframe> -->
+    <script>
+      // The value for 'accessToken' begins with 'pk...'
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiY2FwdGFpbmNhdGxhZHkiLCJhIjoiY2xkdWFqN3lwMDN2djNwcW9yeHBkeDRqbyJ9.sDDirsJ2Zj8gpAZWB9HlFQ";
+      const map = new mapboxgl.Map({
+        container: "map",
 
-    <body>
-        <h1>Hello</h1>
-    </body>
-    <script src="script.js"></script>
+        style: "mapbox://styles/mapbox/satellite-v9'",
+        center: [-87.661557, 41.893748],
+        zoom: 10.7,
+      });
 
+      map.on("load", () => {
+        map.addSource("earthquakes", {
+          type: "geojson",
+          // Use a URL for the value for the `data` property.
+          data: "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson",
+        });
+
+        map.addLayer({
+          id: "earthquakes-layer",
+          type: "circle",
+          source: "earthquakes",
+          paint: {
+            "circle-radius": 4,
+            "circle-stroke-width": 2,
+            "circle-color": "red",
+            "circle-stroke-color": "white",
+          },
+        });
+      });
+    </script>
+  </body>
 </html>
