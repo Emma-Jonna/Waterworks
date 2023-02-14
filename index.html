@@ -7,86 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./CSS/main.css">
     <title>Document</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #000000;
-      }
-
-      #map {
-        position: absolute;
-        top: 136px;
-        bottom: 90px;
-        width: 100%;
-      }
-
-      .logo-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-top: 15px;
-        /* background-color: #FFFFFF; */
-      }
-
-      header {
-        background-color: #215E66;
-      }
-    </style>
+   
   </head>
 
   <body>
     <header>
       <div class="logo-container">
         <div class="logo">
-          <svg width="525" height="118" viewBox="0 0 525 118" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M150.944 55V32.088H119.52V55H116.448V9.24H119.52V29.336H150.944V9.24H154.016V55H150.944ZM183.75 55H180.678V38.616L163.462 9.24H167.174L180.486 32.408C181.254 33.7733 181.894 34.968 182.406 35.992C182.576 35.4373 183.174 34.2853 184.198 32.536L197.51 9.24H201.03L183.75 38.744V55ZM225.167 52.76C231.183 52.76 236.004 51.1387 239.631 47.896C243.3 44.6107 245.135 39.6827 245.135 33.112C245.135 26.5413 243.065 21.3147 238.927 17.432C234.831 13.5493 229.753 11.608 223.695 11.608C219.812 11.608 216.441 11.7147 213.583 11.928V52.248C216.356 52.5893 220.217 52.76 225.167 52.76ZM223.695 8.792C230.735 8.792 236.623 10.9893 241.359 15.384C246.095 19.736 248.463 25.6667 248.463 33.176C248.463 36.9733 247.844 40.344 246.607 43.288C245.412 46.1893 243.748 48.5147 241.615 50.264C237.22 53.8053 231.737 55.576 225.167 55.576C220.857 55.576 215.972 55.3413 210.51 54.872V9.24C214.863 8.94133 219.257 8.792 223.695 8.792ZM262.698 55V9.432C266.751 9.13333 270.143 8.984 272.874 8.984C277.226 8.984 280.81 10.1147 283.626 12.376C286.442 14.5947 287.85 17.752 287.85 21.848C287.85 24.6213 287.039 27.2027 285.418 29.592C283.797 31.9813 281.983 33.88 279.978 35.288C281.557 37.464 283.498 40.0667 285.802 43.096C288.149 46.0827 289.663 47.96 290.346 48.728C292.949 51.5013 295.893 53.08 299.178 53.464L299.114 55.512C296.511 55.4693 294.399 55.0853 292.778 54.36C291.157 53.592 289.599 52.44 288.106 50.904C286.655 49.368 283.007 44.5893 277.162 36.568C272.981 36.568 269.183 36.44 265.77 36.184V55H262.698ZM275.306 34.008C277.183 34.008 279.189 32.7707 281.322 30.296C283.455 27.8213 284.522 24.9627 284.522 21.72C284.522 18.4347 283.413 15.96 281.194 14.296C279.018 12.5893 276.117 11.736 272.49 11.736C270.57 11.736 268.33 11.8213 265.77 11.992V33.688C269.183 33.9013 272.362 34.008 275.306 34.008ZM308.471 48.92C304.247 44.3547 302.135 38.744 302.135 32.088C302.135 25.432 304.247 19.8427 308.471 15.32C312.738 10.7547 318.114 8.472 324.599 8.472C331.084 8.472 336.46 10.7547 340.727 15.32C344.994 19.8427 347.127 25.432 347.127 32.088C347.127 38.744 344.994 44.3547 340.727 48.92C336.46 53.4853 331.084 55.768 324.599 55.768C318.114 55.768 312.738 53.4853 308.471 48.92ZM310.775 17.304C307.234 21.272 305.463 26.2 305.463 32.088C305.463 37.976 307.234 42.9253 310.775 46.936C314.359 50.9467 318.967 52.952 324.599 52.952C330.274 52.952 334.882 50.9467 338.423 46.936C342.007 42.9253 343.799 37.976 343.799 32.088C343.799 26.2 342.007 21.272 338.423 17.304C334.882 13.2933 330.274 11.288 324.599 11.288C318.924 11.288 314.316 13.2933 310.775 17.304Z"
-              fill="black" />
-            <path
-              d="M3.7167 103.367L103.295 78.1006C103.907 77.9453 104.537 77.8736 105.168 77.8872L334.302 82.8362C335.236 82.8563 336.164 82.6895 337.032 82.3454L440.196 41.4604C442.66 40.4837 445.465 40.983 447.441 42.7504L515.217 103.367"
-              stroke="#0D85AB" stroke-width="29" />
-          </svg>
+          <img src="images/hydr.svg">
         </div>
       </div>
     </header>
     <div id="map"></div>
     <div id='map' style='width: 400px; height: 300px;'></div>
-    <div></div>
+    <button class = "button">More info</button>
+    
+    <div class="shape">hej</div>
   </body>
-  <!-- <script>
-    // The value for 'accessToken' begins with 'pk...'
-    mapboxgl.accessToken =
-      "pk.eyJ1IjoiY2FwdGFpbmNhdGxhZHkiLCJhIjoiY2xkdWFqN3lwMDN2djNwcW9yeHBkeDRqbyJ9.sDDirsJ2Zj8gpAZWB9HlFQ";
-    const map = new mapboxgl.Map( {
-      container: "map",
-
-      style: "mapbox://styles/mapbox/satellite-v9'",
-      center: [ -87.661557, 41.893748 ],
-      zoom: 10.7,
-    } );
-
-    map.on( "load", () => {
-      map.addSource( "earthquakes", {
-        type: "geojson",
-        // Use a URL for the value for the `data` property.
-        data: "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson",
-      } );
-
-      map.addLayer( {
-        id: "earthquakes-layer",
-        type: "circle",
-        source: "earthquakes",
-        paint: {
-          "circle-radius": 4,
-          "circle-stroke-width": 2,
-          "circle-color": "red",
-          "circle-stroke-color": "white",
-        },
-      } );
-    } );
-  </script> -->
+  
   <script src="script.js"></script>
 
 </html>

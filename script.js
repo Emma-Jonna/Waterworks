@@ -9,6 +9,7 @@ const map = new mapboxgl.Map({
 
 map.on("idle", function () {
   map.resize();
+
 });
 
 const getInfo = async () => {
@@ -22,30 +23,65 @@ const getInfo = async () => {
 
   // createMarkers(waterdata);
 
+
+
   createMarkers(resp);
 
   try {
   } catch (error) {}
 };
 
+
+
+
+
 const createMarkers = async (resp) => {
   const waterdata = await resp;
   waterdata.forEach((element) => {
+    //changes color
+    let markerColor = "black"
+    if(element.MeasureParameters[0].CurrentValue >=10 ) {
+      markerColor = "blue";
+    }  
+    if(element.MeasureParameters[0].CurrentValue >=60 ) {
+      markerColor = "green";
+    }  
+
+    if(!element.MeasureParameters[0].CurrentValue) {
+      element.MeasureParameters[0].CurrentValue = "No data available";
+
+
+    }
     // console.log(element.Description);
     // console.log(`Latitude: ${element.Lat}, Longitude${element.Long}`);
-    const marker = new mapboxgl.Marker()
+    const marker = new mapboxgl.Marker({"color": markerColor})
+   
       .setLngLat([element.Long, element.Lat])
+    
+      
       .addTo(map)
       .setPopup(
-        new mapboxgl.Popup().setHTML(element.MeasureParameters[0].CurrentValue)
+       new mapboxgl.Popup().setHTML(element.Description + "<br>Water level: " + element.MeasureParameters[0].CurrentValue)
       )
       // add popup
       .addTo(map);
+
+      
+    
     // marker.classList.add("markers");
+    
   });
 };
 
+
 getInfo();
+
+//zoom in with controls
+const nav = new mapboxgl.NavigationControl({
+  visualizePitch: true
+});
+map.addControl(nav, 'bottom-right');
+
 
 /* markers.forEach((element) => {
   console.log(element.innerHTML);

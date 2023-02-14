@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+  }
+
+  #map {
+    position: absolute;
+    top: 136px;
+    bottom: 90px;
+    width: 100%;
+    
+  }
+
+  .button{
+      background-color: green;
+      color: white;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+    /* background-color: #FFFFFF; */
+  }
+
+  .logo svg {
+    max-width: 100vw;
+  }
+
+  header {
+    background-color: black;
+  }
+
+.shape {
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+    clip-path: polygon(40% 8%, 75% 0, 100% 14%, 100% 70%, 100% 100%, 50% 100%, 21% 100%, 0 100%, 0 15%, 15% 10%);
+}
+
+@keyframes popup {
+    from {top: 100%;}
+    to {top: 70%;}
+}
+
+@media (max-width: 720px) {
+    .mapboxgl-popup {
+        all: unset;
+        position: relative;
+        min-height: 800px;
+        animation-name: popup;
+        animation-duration: 1s;
+        top: 70%;
+    }
+}
