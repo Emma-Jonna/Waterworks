@@ -33,8 +33,8 @@ const createMarkers = async (resp) => {
   waterdata.forEach((element) => {
     // console.log(element.Description);
     // console.log(`Latitude: ${element.Lat}, Longitude${element.Long}`);
-    const marker = new mapboxgl.Marker()
-      .setLngLat([element.Long, element.Lat])
+    const marker = new mapboxgl.Marker().setLngLat([element.Long, element.Lat]);
+    marker.style.backgroundcolor = "red"
       .addTo(map)
       .setPopup(
         new mapboxgl.Popup().setHTML(element.MeasureParameters[0].CurrentValue)
