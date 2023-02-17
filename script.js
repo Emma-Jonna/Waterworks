@@ -2,7 +2,7 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoiY2FwdGFpbmNhdGxhZHkiLCJhIjoiY2xkdWFqN3lwMDN2djNwcW9yeHBkeDRqbyJ9.sDDirsJ2Zj8gpAZWB9HlFQ";
 const map = new mapboxgl.Map({
   container: "map", // container ID
-  style: "mapbox://styles/doughnuteagle/cle4bsayi000x01oc94n1x17p", // style URL
+  style: "mapbox://styles/doughnuteagle/cle8iibsk006901q9d2lnkaol", // style URL
   center: [12.012207669236538, 57.65732635513358], // starting position [lng, lat]
   zoom: 9, // starting zoom
 });
@@ -23,10 +23,41 @@ const getInfo = async () => {
   // createMarkers(waterdata);
 
   createMarkers(resp);
+  const waterInfo = document.querySelector(".all-water-info");
+  const button = document.querySelector(".button");
+
+  //get out and print data for all the water informations
+  resp.forEach((waterData) => {
+    const header = document.createElement("h2");
+
+    header.style.color = "red";
+
+    header.textContent = waterData.Code;
+    waterInfo.appendChild(header);
+    waterData.MeasureParameters.forEach((messurments) => {
+      if (messurments.Code === "Level") {
+        const p = document.createElement("p");
+        p.style.color = "red";
+        p.textContent = messurments.CurrentValue;
+        waterInfo.appendChild(p);
+      }
+    });
+  });
+  waterInfo.classList.add("hidden");
+  button.addEventListener("click", () => {
+    // console.log(resp);
+    if (waterInfo.classList.contains("hidden")) {
+      waterInfo.classList.remove("hidden");
+    } else waterInfo.classList.add("hidden");
+  });
 
   try {
   } catch (error) {}
 };
+
+const lowWaterLevel = "#";
+const mediumWaterLevel = "#";
+const highWaterLevel = "#";
 
 const createMarkers = async (resp) => {
   const waterdata = await resp;
@@ -45,7 +76,7 @@ const createMarkers = async (resp) => {
     }
     // console.log(element.Description);
     // console.log(`Latitude: ${element.Lat}, Longitude${element.Long}`);
-    const marker = new mapboxgl.Marker({color: markerColor})
+    const marker = new mapboxgl.Marker({ color: markerColor })
 
       .setLngLat([element.Long, element.Lat])
 
@@ -71,6 +102,8 @@ const nav = new mapboxgl.NavigationControl({
   visualizePitch: true,
 });
 map.addControl(nav, "bottom-right");
+
+// get info-box when you press a button
 
 /* markers.forEach((element) => {
   console.log(element.innerHTML);
