@@ -71,9 +71,15 @@ const createMarkers = async (resp) => {
       markerColor = "green";
     }
 
-    if (!element.MeasureParameters[0].CurrentValue) {
-      element.MeasureParameters[0].CurrentValue = "No data available";
-    }
+    element.MeasureParameters.forEach(MeasureParameter => {
+      if (!MeasureParameter.CurrentValue && MeasureParameter.CurrentValue != "0") {
+        MeasureParameter.CurrentValue = "Ingen data tillgänglig";
+      }
+    });
+    
+    /*if (!element.MeasureParameters[0].CurrentValue) {
+      element.MeasureParameters[0].CurrentValue = "Ingen data tillgänglig";
+    }*/
     // console.log(element.Description);
     // console.log(`Latitude: ${element.Lat}, Longitude${element.Long}`);
     const marker = new mapboxgl.Marker({ color: markerColor })
@@ -83,9 +89,9 @@ const createMarkers = async (resp) => {
       .addTo(map)
       .setPopup(
         new mapboxgl.Popup().setHTML(
-          element.Description +
-            "<br>Water level: " +
-            element.MeasureParameters[0].CurrentValue
+          
+          "<b>"+element.Description+"</b>" +
+            popupInfo(element)/*  + "<br><button onclick='moreInfo()'>More info</button>" */
         )
       )
       // add popup
@@ -94,6 +100,22 @@ const createMarkers = async (resp) => {
     // marker.classList.add("markers");
   });
 };
+
+function moreInfo() {
+  
+}
+
+function popupInfo(element) {
+  let textContent = "";
+  element.MeasureParameters.forEach(MeasureParameter => {
+    /*if (!element.MeasureParameter.CurrentValue) {
+      element.MeasureParameter.CurrentValue = "Ingen data tillgänglig";
+    }*/
+    textContent += "<br>" + MeasureParameter.Description + ": " +
+    MeasureParameter.CurrentValue;
+  });
+  return textContent;
+}
 
 getInfo();
 
