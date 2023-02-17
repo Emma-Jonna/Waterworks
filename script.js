@@ -55,20 +55,24 @@ const getInfo = async () => {
   } catch (error) {}
 };
 
-const lowWaterLevel = "#";
-const mediumWaterLevel = "#";
-const highWaterLevel = "#";
+const lowWaterLevel = "#6C9A8B";
+const mediumWaterLevel = "#E8998D";
+const highWaterLevel = "#EED2CC";
+
+/* const lowWaterLevel = "#512D38";
+const mediumWaterLevel = "#B27092";
+const highWaterLevel = "#F4BFDB"; */
 
 const createMarkers = async (resp) => {
   const waterdata = await resp;
   waterdata.forEach((element) => {
     //changes color
-    let markerColor = "black";
+    let markerColor = lowWaterLevel;
     if (element.MeasureParameters[0].CurrentValue >= 10) {
-      markerColor = "blue";
+      markerColor = mediumWaterLevel;
     }
     if (element.MeasureParameters[0].CurrentValue >= 60) {
-      markerColor = "green";
+      markerColor = highWaterLevel;
     }
 
     element.MeasureParameters.forEach(MeasureParameter => {
