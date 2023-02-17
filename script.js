@@ -23,6 +23,33 @@ const getInfo = async () => {
   // createMarkers(waterdata);
 
   createMarkers(resp);
+  const waterInfo = document.querySelector(".all-water-info");
+  const button = document.querySelector(".button");
+
+  //get out and print data for all the water informations
+  resp.forEach((waterData) => {
+    const header = document.createElement("h2");
+
+    header.style.color = "red";
+
+    header.textContent = waterData.Code;
+    waterInfo.appendChild(header);
+    waterData.MeasureParameters.forEach((messurments) => {
+      if (messurments.Code === "Level") {
+        const p = document.createElement("p");
+        p.style.color = "red";
+        p.textContent = messurments.CurrentValue;
+        waterInfo.appendChild(p);
+      }
+    });
+  });
+  waterInfo.classList.add("hidden");
+  button.addEventListener("click", () => {
+    // console.log(resp);
+    if (waterInfo.classList.contains("hidden")) {
+      waterInfo.classList.remove("hidden");
+    } else waterInfo.classList.add("hidden");
+  });
 
   try {
   } catch (error) {}
@@ -45,7 +72,7 @@ const createMarkers = async (resp) => {
     }
     // console.log(element.Description);
     // console.log(`Latitude: ${element.Lat}, Longitude${element.Long}`);
-    const marker = new mapboxgl.Marker({color: markerColor})
+    const marker = new mapboxgl.Marker({ color: markerColor })
 
       .setLngLat([element.Long, element.Lat])
 
@@ -71,6 +98,8 @@ const nav = new mapboxgl.NavigationControl({
   visualizePitch: true,
 });
 map.addControl(nav, "bottom-right");
+
+// get info-box when you press a button
 
 /* markers.forEach((element) => {
   console.log(element.innerHTML);
