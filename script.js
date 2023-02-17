@@ -2,7 +2,7 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoiY2FwdGFpbmNhdGxhZHkiLCJhIjoiY2xkdWFqN3lwMDN2djNwcW9yeHBkeDRqbyJ9.sDDirsJ2Zj8gpAZWB9HlFQ";
 const map = new mapboxgl.Map({
   container: "map", // container ID
-  style: "mapbox://styles/doughnuteagle/cle4bsayi000x01oc94n1x17p", // style URL
+  style: "mapbox://styles/doughnuteagle/cle8iibsk006901q9d2lnkaol", // style URL
   center: [12.012207669236538, 57.65732635513358], // starting position [lng, lat]
   zoom: 9, // starting zoom
 });
@@ -54,6 +54,10 @@ const getInfo = async () => {
   try {
   } catch (error) {}
 };
+
+const lowWaterLevel = "#";
+const mediumWaterLevel = "#";
+const highWaterLevel = "#";
 
 const createMarkers = async (resp) => {
   const waterdata = await resp;
