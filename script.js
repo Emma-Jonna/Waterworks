@@ -30,17 +30,27 @@ const getInfo = async () => {
   resp.forEach((waterData) => {
     const header = document.createElement("h2");
 
-    header.style.color = "red";
+    // header.style.color = "red";
 
     header.textContent = waterData.Code;
     waterInfo.appendChild(header);
+
     waterData.MeasureParameters.forEach((messurments) => {
-      if (messurments.Code === "Level") {
+      /* if (messurments.Code === "Level") {
         const p = document.createElement("p");
         p.style.color = "red";
         p.textContent = messurments.CurrentValue;
         waterInfo.appendChild(p);
+      } */
+      const p = document.createElement("p");
+      // p.style.color = "red";
+
+      if (!messurments.CurrentValue == "") {
+        p.textContent = `${messurments.Description}: ${messurments.CurrentValue}`;
+      } else {
+        p.textContent = `${messurments.Description}: Ingen data tillgänglig`;
       }
+      waterInfo.appendChild(p);
     });
   });
   waterInfo.classList.add("hidden");
@@ -75,27 +85,33 @@ const createMarkers = async (resp) => {
       markerColor = highWaterLevel;
     }
 
-    element.MeasureParameters.forEach(MeasureParameter => {
-      if (!MeasureParameter.CurrentValue && MeasureParameter.CurrentValue != "0") {
+    element.MeasureParameters.forEach((MeasureParameter) => {
+      if (
+        !MeasureParameter.CurrentValue &&
+        MeasureParameter.CurrentValue != "0"
+      ) {
         MeasureParameter.CurrentValue = "Ingen data tillgänglig";
       }
     });
-    
+
     /*if (!element.MeasureParameters[0].CurrentValue) {
       element.MeasureParameters[0].CurrentValue = "Ingen data tillgänglig";
     }*/
     // console.log(element.Description);
     // console.log(`Latitude: ${element.Lat}, Longitude${element.Long}`);
-    const marker = new mapboxgl.Marker({ color: markerColor })
+    const marker = new mapboxgl.Marker({color: markerColor})
 
       .setLngLat([element.Long, element.Lat])
 
       .addTo(map)
       .setPopup(
         new mapboxgl.Popup().setHTML(
-          
-          "<b>"+element.Description+"</b>" +
-            popupInfo(element)/*  + "<br><button onclick='moreInfo()'>More info</button>" */
+          "<b>" +
+            element.Description +
+            "</b>" +
+            popupInfo(
+              element
+            ) /*  + "<br><button onclick='moreInfo()'>More info</button>" */
         )
       )
       // add popup
@@ -105,18 +121,19 @@ const createMarkers = async (resp) => {
   });
 };
 
-function moreInfo() {
-  
-}
+function moreInfo() {}
 
 function popupInfo(element) {
   let textContent = "";
-  element.MeasureParameters.forEach(MeasureParameter => {
+  element.MeasureParameters.forEach((MeasureParameter) => {
     /*if (!element.MeasureParameter.CurrentValue) {
       element.MeasureParameter.CurrentValue = "Ingen data tillgänglig";
     }*/
-    textContent += "<br>" + MeasureParameter.Description + ": " +
-    MeasureParameter.CurrentValue;
+    textContent +=
+      "<br>" +
+      MeasureParameter.Description +
+      ": " +
+      MeasureParameter.CurrentValue;
   });
   return textContent;
 }
