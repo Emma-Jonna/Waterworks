@@ -173,7 +173,7 @@ header {
 .all-water-info {
   display: grid;
   grid-template-columns: 30% 30% 30%;
-  padding: auto;
+  justify-content: center;
 }
 
 .info-card {
