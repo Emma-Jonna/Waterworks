@@ -242,6 +242,7 @@ header {
   }
 }
 
+
 @media (max-width: 720px) {
   .mapboxgl-popup {
     all: unset;
