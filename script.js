@@ -130,12 +130,12 @@ function popupInfo(element) {
       element.MeasureParameter.CurrentValue = "Ingen data tillgänglig";
     }*/
     textContent +=
-      "<br>" +
+      "<p>" +
       MeasureParameter.Description +
       ": " +
-      MeasureParameter.CurrentValue;
+      MeasureParameter.CurrentValue + "<p>";
   });
-  return "<p>" + textContent + "<p>";
+  return textContent;
 }
 
 getInfo();
