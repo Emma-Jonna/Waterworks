@@ -14,7 +14,6 @@
 #colorInfo {
   display: flex;
   flex-direction: column;
-
   margin-top: 100px;
   color: white;
   font-family: "Quicksand-Regular";
@@ -27,9 +26,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   margin-left: 0.5rem;
-  margin-top: -0.5rem;
+  margin-top: 0.5rem;
 }
 
 .all-water-info {
@@ -56,11 +55,23 @@
 .one,
 .two,
 .three {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+}
+
+.one {
+  background-color: #ff8811;
+}
+
+.two {
+  background-color: #f4d06f;
+}
+
+.three {
+  background-color: #98473e;
 }
 
 .button {
@@ -75,7 +86,7 @@
   .three {
     height: 50px;
     width: 50px;
-    background-color: blue;
+
     border-radius: 50%;
   }
 
