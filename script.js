@@ -18,8 +18,6 @@ const getInfo = async () => {
 
   const resp = await response.json();
 
-  // console.log(resp[0].Description);
-
   // createMarkers(waterdata);
 
   createMarkers(resp);
@@ -33,20 +31,11 @@ const getInfo = async () => {
     waterInfo.appendChild(infoCard);
     const header = document.createElement("h2");
 
-    // header.style.color = "red";
-
     header.textContent = waterData.Description;
     infoCard.appendChild(header);
 
     waterData.MeasureParameters.forEach((messurments) => {
-      /* if (messurments.Code === "Level") {
-        const p = document.createElement("p");
-        p.style.color = "red";
-        p.textContent = messurments.CurrentValue;
-        waterInfo.appendChild(p);
-      } */
       const p = document.createElement("p");
-      // p.style.color = "red";
 
       if (!messurments.CurrentValue == "") {
         p.textContent = `${messurments.Description}: ${messurments.CurrentValue}`;
@@ -58,7 +47,7 @@ const getInfo = async () => {
   });
   waterInfo.classList.add("hidden");
   button.addEventListener("click", () => {
-    // console.log(resp);
+
     if (waterInfo.classList.contains("hidden")) {
       waterInfo.classList.remove("hidden");
     } else waterInfo.classList.add("hidden");
@@ -71,10 +60,6 @@ const getInfo = async () => {
 const lowWaterLevel = "#FF8811";
 const mediumWaterLevel = "#F4D06F";
 const highWaterLevel = "#98473E";
-
-/* const lowWaterLevel = "#512D38";
-const mediumWaterLevel = "#B27092";
-const highWaterLevel = "#F4BFDB"; */
 
 const createMarkers = async (resp) => {
   const waterdata = await resp;
@@ -97,11 +82,6 @@ const createMarkers = async (resp) => {
       }
     });
 
-    /*if (!element.MeasureParameters[0].CurrentValue) {
-      element.MeasureParameters[0].CurrentValue = "Ingen data tillgänglig";
-    }*/
-    // console.log(element.Description);
-    // console.log(`Latitude: ${element.Lat}, Longitude${element.Long}`);
     const marker = new mapboxgl.Marker({color: markerColor})
 
       .setLngLat([element.Long, element.Lat])
@@ -149,38 +129,3 @@ const nav = new mapboxgl.NavigationControl({
   visualizePitch: true,
 });
 map.addControl(nav, "bottom-right");
-
-// get info-box when you press a button
-
-/* markers.forEach((element) => {
-  console.log(element.innerHTML);
-}); */
-
-/* map.on("click", "poi-label", (e) => {
-  console.log("hej");
-  console.log(e.lngLat);
-}); */
-
-// console.log(waterData);
-
-// TO MAKE THE MAP APPEAR YOU MUST
-// ADD YOUR ACCESS TOKEN FROM
-// https://account.mapbox.com
-
-/* const map = new mapboxgl.Map({
-  container: "map", // container ID
-  center: [-122.420679, 37.772537], // starting position [lng, lat]
-  zoom: 13, // starting zoom
-  style: "mapbox://styles/mapbox/streets-v11", // style URL or style object
-  hash: true, // sync `center`, `zoom`, `pitch`, and `bearing` with URL
-  // Use `transformRequest` to modify requests that begin with `http://myHost`.
-  transformRequest: (url, resourceType) => {
-    if (resourceType === "Source" && url.startsWith("http://myHost")) {
-      return {
-        url: url.replace("http", "https"),
-        headers: {"my-custom-header": true},
-        credentials: "include", // Include cookies for cross-origin requests
-      };
-    }
-  },
-}); */
