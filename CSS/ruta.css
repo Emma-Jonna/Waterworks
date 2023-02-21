@@ -1,20 +1,7 @@
-.info-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-
-  display: block;
-  background-color: blueviolet;
-}
-
 #colorInfo {
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+
   color: white;
   font-family: "Quicksand-Regular";
   font-size: 15px;
@@ -74,10 +61,20 @@
   background-color: #98473e;
 }
 
+.button-and-colors {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-direction: row;
+}
+
 .button {
-  background-color: green;
-  color: white;
-  margin-top: 100px;
+  background-color: #92cee2;
+  margin-top: 2.1rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  color: black;
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 1024px) {
@@ -100,5 +97,17 @@
   .box-two,
   .box-three {
     margin: 20px;
+  }
+
+  .button {
+    padding: 1rem;
+    font-size: 25px;
+    margin-bottom: 2rem;
+    margin-top: 0;
+  }
+
+  .button-and-colors {
+    flex-direction: column;
+    align-items: center;
   }
 }
