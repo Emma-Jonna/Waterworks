@@ -241,7 +241,6 @@ header {
   }
 }
 
-
 @media (max-width: 720px) {
   .mapboxgl-popup {
     all: unset;
@@ -261,8 +260,4 @@ header {
   .all-water-info {
     grid-template-columns: 90%;
   }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 }

@@ -76,6 +76,12 @@
   padding: 0.4rem;
   color: black;
   justify-content: space-between;
+  transition: 0.4s;
+}
+
+.button:hover {
+  background-color: #2b2d5c;
+  color: white;
 }
 
 @media screen and (min-width: 1024px) {
