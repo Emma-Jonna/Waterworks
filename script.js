@@ -65,9 +65,9 @@ const getInfo = async () => {
   } catch (error) {}
 };
 
-const lowWaterLevel = "#6C9A8B";
-const mediumWaterLevel = "#E8998D";
-const highWaterLevel = "#EED2CC";
+const lowWaterLevel = "#FF8811";
+const mediumWaterLevel = "#F4D06F";
+const highWaterLevel = "#98473E";
 
 /* const lowWaterLevel = "#512D38";
 const mediumWaterLevel = "#B27092";
@@ -133,7 +133,8 @@ function popupInfo(element) {
       "<p>" +
       MeasureParameter.Description +
       ": " +
-      MeasureParameter.CurrentValue + "<p>";
+      MeasureParameter.CurrentValue +
+      "<p>";
   });
   return textContent;
 }
