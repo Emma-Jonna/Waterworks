@@ -63,6 +63,30 @@ header {
   );
 }
 
+.all-water-info {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  padding: auto;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  
+  background-color: #92CEE2;
+  margin: 1rem;
+  padding: 0.5rem;
+  height: 128px;
+}
+
+.info-card h2 {
+  margin: 0;
+}
+
+.info-card p {
+  margin-bottom: auto;
+}
+
 .mapboxgl-popup-content {
   background-color: #92CEE2;
   color: black;
@@ -121,6 +145,10 @@ header {
     }
     .mapboxgl-popup-tip {
       display: none;
+    }
+
+    .all-water-info {
+      grid-template-columns: 90%;
     }
 
     #colorInfo{

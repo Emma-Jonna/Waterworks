@@ -28,12 +28,15 @@ const getInfo = async () => {
 
   //get out and print data for all the water informations
   resp.forEach((waterData) => {
+    const infoCard = document.createElement("article");
+    infoCard.classList.add("info-card");
+    waterInfo.appendChild(infoCard);
     const header = document.createElement("h2");
 
     // header.style.color = "red";
 
     header.textContent = waterData.Code;
-    waterInfo.appendChild(header);
+    infoCard.appendChild(header);
 
     waterData.MeasureParameters.forEach((messurments) => {
       /* if (messurments.Code === "Level") {
@@ -50,7 +53,7 @@ const getInfo = async () => {
       } else {
         p.textContent = `${messurments.Description}: Ingen data tillgänglig`;
       }
-      waterInfo.appendChild(p);
+      infoCard.appendChild(p);
     });
   });
   waterInfo.classList.add("hidden");
