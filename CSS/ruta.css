@@ -66,11 +66,12 @@
   justify-content: space-around;
   align-content: space-around;
   flex-direction: row;
+  padding-bottom: 0.5rem;
 }
 
 .button {
   background-color: #92cee2;
-  margin-top: 2.1rem;
+  margin-top: 1.9rem;
   cursor: pointer;
   padding: 0.4rem;
   color: black;
