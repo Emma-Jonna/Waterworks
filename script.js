@@ -118,7 +118,7 @@ function popupInfo(element) {
     textContent += "<br>" + MeasureParameter.Description + ": " +
     MeasureParameter.CurrentValue;
   });
-  return textContent;
+  return "<p>" + textContent + "<p>";
 }
 
 getInfo();
