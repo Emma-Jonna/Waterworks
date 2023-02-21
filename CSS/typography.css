@@ -1,1 +1,12 @@
+p, button {
+    font-family: "Quicksand-Regular";
+    margin: 0;
+}
 
+b {
+    font-family: "Quicksand-Bold";
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "JuliusSansOne";
+}
