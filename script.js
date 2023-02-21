@@ -32,7 +32,7 @@ const getInfo = async () => {
 
     // header.style.color = "red";
 
-    header.textContent = waterData.Code;
+    header.textContent = waterData.Description;
     waterInfo.appendChild(header);
 
     waterData.MeasureParameters.forEach((messurments) => {
