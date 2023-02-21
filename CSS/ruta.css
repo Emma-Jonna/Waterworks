@@ -11,6 +11,26 @@
   background-color: blueviolet;
 }
 
+#colorInfo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  color: white;
+  font-family: "Quicksand-Regular";
+  font-size: 15px;
+}
+
+.box-one,
+.box-two,
+.box-three {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+
 .all-water-info {
   background-color: white;
   height: 100%;
@@ -30,4 +50,55 @@
 
 .hidden {
   display: none;
+}
+
+.one,
+.two,
+.three {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.one {
+  background-color: #ff8811;
+}
+
+.two {
+  background-color: #f4d06f;
+}
+
+.three {
+  background-color: #98473e;
+}
+
+.button {
+  background-color: green;
+  color: white;
+  margin-top: 100px;
+}
+
+@media screen and (min-width: 1024px) {
+  .one,
+  .two,
+  .three {
+    height: 50px;
+    width: 50px;
+
+    border-radius: 50%;
+  }
+
+  #colorInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 25px;
+  }
+  .box-one,
+  .box-two,
+  .box-three {
+    margin: 20px;
+  }
 }

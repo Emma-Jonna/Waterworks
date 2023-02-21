@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
-    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet" />
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./CSS/main.css" />
     <link rel="stylesheet" href="./CSS/ruta.css" />
-    <link rel="stylesheet" href="./CSS/typography.css">
-    <link rel="stylesheet" href="./CSS/fonts.css">
-    <link rel="stylesheet" href="./CSS/global.css">
+    <link rel="stylesheet" href="CSS/typography.css" />
+    <link rel="stylesheet" href="CSS/fonts.css" />
+    <link rel="stylesheet" href="CSS/global.css" />
     <title>Document</title>
   </head>
 
@@ -25,33 +27,26 @@
     </header>
     <div id="map"></div>
 
-    <main>
+    <main style="margin-top: 550px">
+      <section id="colorInfo">
+        <div class="box-one">
+          <div class="one"></div>
+          <p>Vattennivå: 0-10</p>
+        </div>
+        <div class="box-two">
+          <div class="two"></div>
+          <p>Vattennivå: 11-59</p>
+        </div>
+        <div class="box-three">
+          <div class="three"></div>
+          <p>Vattennivå: > 60</p>
+        </div>
+      </section>
+
       <button class="button">More info</button>
-      <section class="info-section">
-        <h2> More water-data</h2>
-        <div class="all-water-info"></div>
-        <section>
-
-          <div id="colorInfo">
-            <div class="one">
-              <img src="/images/1544077479_Circle-Shape.webp" alt="circle">
-              <p>Vattennivå: 0-10</p>
-            </div>
-            <div class="two">
-              <img src="/images/1544077479_Circle-Shape.webp" alt="circle">
-              <p>Vattennivå: 11-59</p>
-            </div>
-            <div class="three">
-              <img src="/images/1544077479_Circle-Shape.webp" alt="circle">
-              <p>Vattennivå: >60</p>
-            </div>
-          </div>
+      <div class="all-water-info"></div>
     </main>
-
-
-    <!-- <div class="shape">hej</div> -->
   </body>
 
   <script src="script.js"></script>
-
 </html>
