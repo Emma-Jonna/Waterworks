@@ -2,7 +2,7 @@
 
 # Waterworks
 
-Link to website: https://storied-tarsier-c561b5.netlify.app/
+Link to website: https://hydro-waterworks.netlify.app/
 
 # Method
 Map it out
